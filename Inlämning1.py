@@ -1,7 +1,7 @@
 # sten sax påse spel
 import random
 import os
-spel = ["Sten", "Sax", "Påse"]
+spel = ["sten", "sax", "påse"]
 playing = True
 spelare_Poäng = 0
 motståndare_Poäng = 0
@@ -9,11 +9,11 @@ resultat = " "
 antal_Omgångar = 3
 
 def Vinst():
-    resultat = "Grattis, du vann!!"
+    resultat = "Du fick poäng"
     spelare_Poäng = +1
 
 def Förlust():
-    resultat = "Tyvärr du förlorade!!"
+    resultat = "Motståndaren fick poäng "
     motståndare_Poäng = +1
 
 
@@ -24,41 +24,42 @@ print("Hej välkommen till Sten sax och påse spelet!")
 while  playing:
     
     motståndare = random.choice(spel)
-
+    
     val = input("Var god välj nåt av alternativen: \n1:Sten \n2:Sax \n3:Påse \n> ")
-
-    if val == "Sten" and motståndare == "Sax":
+    os.system('cls')
+    if val == motståndare:
+         resultat = "Oavgjort"
+    elif val.lower() == "sten" and motståndare == "sax":
         #Vinst()
-        #resultat = "Grattis, du vann!!"
+        resultat = " "
         spelare_Poäng +=1
 
-    elif val == "Sten" and motståndare == "Påse":
+    elif val.lower() == "sten" and motståndare == "påse":
         #Förlust()
-       # resultat = "Tyvärr du förlorade!!"
+        resultat = " "
         motståndare_Poäng += 1
 
-    elif val == "Sax" and motståndare == "Sten":
+    elif val.lower() == "sax" and motståndare == "sten":
         #Förlust()
-        #resultat = "Tyvärr du förlorade!!"
+        resultat = " "
         motståndare_Poäng += 1
 
-    elif val == "Sax" and motståndare == "Påse":
+    elif val.lower() == "sax" and motståndare == "påse":
         #Vinst()
-        #resultat = "Grattis, du vann!!"
+        resultat = " "
         spelare_Poäng  += 1
 
-    elif val == "Påse" and motståndare == "Sten":
+    elif val.lower() == "påse" and motståndare == "sten":
        # Vinst()
-        #resultat = "Grattis, du vann!!"
+        resultat = " "
         spelare_Poäng += 1
 
-    elif val == "Påse" and motståndare == "Sax":
+    elif val.lower() == "påse" and motståndare == "sax":
        # Förlust()
-        #resultat = "Tyvärr du förlorade!!"
+        resultat = " "
         motståndare_Poäng +=1
 
-    elif val == motståndare:
-         resultat = "Oavgjort"
+    
     else:
         print("Felaktig inmatning!!!!")
 
