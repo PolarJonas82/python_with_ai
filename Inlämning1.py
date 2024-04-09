@@ -9,14 +9,15 @@ resultat = " "
 antal_omgångar = 3
 
 
+
 def Vinst():
     resultat = "Du fick poäng"
-    #spelare_poäng +=1
+    return resultat
     
 
 def Förlust():
     resultat = "Motståndaren fick poäng "
-    #motståndare_poäng += 1
+    return resultat
     
 
 os.system('cls')
@@ -30,39 +31,23 @@ while  igång:
     val = input("Var god välj nåt av alternativen: \n1:Sten \n2:Sax \n3:Påse \n> ")
     val = val.lower()
     os.system('cls')
+    
+    #Vid oavgjort
     if val == motståndare:
          resultat = "Oavgjort"
-    elif val == "sten" and motståndare == "sax":
-        #Vinst()
-        resultat = " "
+
+    # vid vinst
+    elif (val == "sten" and motståndare == "sax") or  (val == "sax" and motståndare == "påse") or ( val == "påse" and motståndare == "sten"):
+        resultat = Vinst()
+        #print(resultat)
         spelare_poäng +=1
 
-    elif val == "sten" and motståndare == "påse":
-        #Förlust()
-        resultat = " "
+    #Vid förlust
+    elif (val == "sten" and motståndare == "påse") or (val == "sax" and motståndare == "sten") or val == "påse" and motståndare == "sax":
+        resultat = Förlust()
         motståndare_poäng += 1
-
-    elif val == "sax" and motståndare == "sten":
-        #Förlust()
-        resultat = " "
-        motståndare_poäng += 1
-
-    elif val == "sax" and motståndare == "påse":
-        #Vinst()
-        resultat = " "
-        spelare_poäng  += 1
-
-    elif val == "påse" and motståndare == "sten":
-       #Vinst()
-        resultat = " "
-        spelare_poäng += 1
-
-    elif val == "påse" and motståndare == "sax":
-       # Förlust()
-        resultat = " "
-        motståndare_poäng +=1
-
-    
+      
+       
     else:
         print("Felaktig inmatning!!!!")
 
