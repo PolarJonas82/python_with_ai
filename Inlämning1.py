@@ -1,7 +1,7 @@
 # sten sax påse spel
 import random
 import os
-Motståndarens_val = ["sten", "sax", "påse"]
+motståndarens_val = ["sten", "sax", "påse"]
 igång = True
 spelare_poäng = 0
 motståndare_poäng = 0
@@ -9,18 +9,7 @@ resultat = " "
 antal_omgångar = 3
 spela_igen = ""
 
-def Spela_Igen():
-    spela_igen = input("Vill du spela igen\nJa/Nej\n>").lower()
-        
-    if spela_igen == "ja":
-        motståndare_poäng = 0
-        spelare_poäng = 0
-        Clear()
-    else:
-        Clear()
-        print("Tack för den här gången!")
-        igång = False
-        
+
     
 def Clear():
     os.system('cls')
@@ -41,9 +30,9 @@ print("Hej välkommen till Sten sax och påse spelet!\nFörst till 3 poäng vinn
 
 while  igång:
     
-    motståndare = random.choice(Motståndarens_val)
+    motståndare = random.choice(motståndarens_val)
     
-    val = input("Var god välj nåt av alternativen: \n1:Sten \n2:Sax \n3:Påse \n> ").lower()
+    val = input("Var god välj nåt av alternativen: \n1:Sten \n2:Sax \n3:Påse \n> ").lower().strip()
     Clear()
     
     #Vid oavgjort
@@ -72,12 +61,12 @@ while  igång:
     print("Ditt poäng " + str(spelare_poäng))
     print("Motståndarens poäng " + str(motståndare_poäng))
 
-    if spelare_poäng == antal_omgångar:
+    if spelare_poäng == antal_omgångar: # Om spelaren vinner
         print("Du Vann!!")
-       #Spela_Igen()
+        
 
 
-        spela_igen = input("Vill du spela igen\nJa/Nej\n>").lower()
+        spela_igen = input("Vill du spela igen\nJa/Nej\n>").lower().strip()
         
         if spela_igen == "ja":
             motståndare_poäng = 0
@@ -88,11 +77,9 @@ while  igång:
             print("Tack för den här gången!")
             igång = False
         
-    elif motståndare_poäng == antal_omgångar:
+    elif motståndare_poäng == antal_omgångar: # Om moståndaren vinner
         print("Du Förlorade!!")
-        #Spela_Igen()
-
-        spela_igen = input("Vill du spela igen\nJa/Nej\n>").lower()
+        spela_igen = input("Vill du spela igen\nJa/Nej\n>").lower().strip()
         
         if spela_igen == "ja":
             motståndare_poäng = 0
