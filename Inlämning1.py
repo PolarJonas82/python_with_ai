@@ -7,7 +7,7 @@ spelare_poäng = 0
 motståndare_poäng = 0
 resultat = " "
 antal_omgångar = 3
-spela_igen = ""
+
 
 
     
